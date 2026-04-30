@@ -2,12 +2,13 @@ import { useState } from "react";
 import useFetch from "../useFetch";
 
 export default function HotelFormSubmit() {
-  const { data, loading, error } = useFetch("http://localhost:3000/hotels");
+  const API_URL = import.meta.env.VITE_API_URL || "https://localhost:3000";
+  const { data, loading, error } = useFetch(`${API_URL}/hotels`);
   const [successMessage, setSuccessMessage] = useState("");
 
   const addHotelDetails = async (hotelDetails) => {
     try {
-      const response = await fetch("http://localhost:3000/hotels", {
+      const response = await fetch(`${API_URL}/hotels`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(hotelDetails),
@@ -79,7 +80,7 @@ export default function HotelFormSubmit() {
   };
 
   const handleDelete = async (hotelId) => {
-    const response = await fetch(`http://localhost:3000/hotels/${hotelId}`, {
+    const response = await fetch(`${API_URL}/hotels/${hotelId}`, {
       method: "DELETE",
     });
 
