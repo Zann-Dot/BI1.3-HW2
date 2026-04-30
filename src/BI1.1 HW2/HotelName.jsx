@@ -1,6 +1,6 @@
 import useFetch from "../useFetch";
 export default function HotelName({ name, API_URL }) {
-  const { data, loading, error } = useFetch(`${API_URL}/${name}`);
+  const { data, loading, error } = useFetch(`${API_URL}/hotels/${name}`);
 
   return data ? (
     <div>
