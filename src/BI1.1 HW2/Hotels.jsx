@@ -5,7 +5,7 @@ import HotelName from "./HotelName";
 export default function Hotels() {
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   const { data, loading, error } = useFetch(`${API_URL}/hotels`);
-
+  console.log(API_URL);
   return (
     <div>
       <h2>All Hotels</h2>
@@ -21,7 +21,7 @@ export default function Hotels() {
           </li>
         ))}
       </ul>
-      <HotelName name={"New Hotel"} API_URL={API_URL} />
+      <HotelName name={"Lake View"} API_URL={API_URL} />
       <Link to="/hotels/submit" className="btn btn-primary mt-4">
         Add New Hotel
       </Link>
